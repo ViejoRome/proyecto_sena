@@ -1,0 +1,179 @@
+:root {
+  --verde: #009e00;
+  --verde-texto: #1f7a1f;
+  --verde-claro: #dff0df;
+  --verde-borde: #4caf50;
+  --gris-card: #f2f2f2;
+  --error: #c0392b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: #212121;
+  padding: 16px;
+}
+
+.page {
+  background: #fff;
+  border-radius: 12px;
+  min-height: calc(100vh - 32px);
+  padding: 24px 28px;
+}
+
+/* ---------- Barra superior ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--verde-claro);
+  border-radius: 10px;
+  padding: 14px 28px;
+}
+.topbar__left { display: flex; align-items: center; gap: 20px; }
+.topbar__icon { width: 52px; height: 52px; object-fit: contain; }
+.topbar h1 { font-size: 20px; color: #111; }
+.topbar__sena { height: 50px; }
+
+/* ---------- Tarjeta ---------- */
+.main { display: flex; justify-content: center; padding: 70px 16px 40px; }
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: var(--gris-card);
+  border: 1px solid var(--verde);
+  border-radius: 12px;
+  padding: 64px 32px 30px;
+}
+
+.card__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card__badge img { width: 76px; height: 76px; object-fit: contain; }
+
+/* ---------- Pasos ---------- */
+.steps {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 26px;
+}
+.step { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; color: #777; position: relative; }
+.step b {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #bbb;
+  font-size: 13px;
+}
+.step.active { color: var(--verde-texto); font-weight: 700; }
+.step.active b { border-color: var(--verde); background: var(--verde); color: #fff; }
+.step.done b { border-color: var(--verde); color: var(--verde); }
+.step.done b::before { content: "✔"; }
+.step.done b { font-size: 0; }
+.step.done b::before { font-size: 13px; }
+
+/* ---------- Paneles ---------- */
+.panel { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.panel[hidden] { display: none; }
+.panel h2 { font-size: 22px; color: #111; }
+.hint { font-size: 14px; color: #444; line-height: 1.4; }
+
+.field { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.field label { font-size: 16px; font-weight: 700; color: var(--verde); }
+.field input {
+  width: 100%;
+  height: 42px;
+  font-family: inherit;
+  font-size: 15px;
+  padding: 8px 12px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  background: #fff;
+}
+.field input:focus, .codigo input:focus { outline: 2px solid var(--verde); border-color: var(--verde); }
+
+/* Contraseña con ojo */
+.pass { position: relative; width: 100%; }
+.pass input { padding-right: 44px; }
+.ojo {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer; font-size: 18px; padding: 4px 8px;
+}
+
+/* Código de 6 dígitos */
+.codigo { display: flex; gap: 10px; margin: 6px 0; }
+.codigo input {
+  width: 46px; height: 54px;
+  text-align: center;
+  font-size: 24px; font-weight: 700;
+  color: var(--verde-texto);
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  background: #fff;
+}
+.codigo input.lleno { border-color: var(--verde); background: var(--verde-claro); }
+.codigo.error input { border-color: var(--error); }
+
+/* Reglas de contraseña */
+.reglas { list-style: none; width: 100%; text-align: left; font-size: 13px; color: #666; display: grid; gap: 4px; }
+.reglas li::before { content: "○ "; }
+.reglas li.ok { color: var(--verde-texto); font-weight: 600; }
+.reglas li.ok::before { content: "● "; }
+
+/* Mensajes */
+.msg { font-size: 13px; font-weight: 600; color: var(--error); }
+.msg.ok { color: var(--verde-texto); }
+.msg[hidden] { display: none; }
+
+/* Botones y enlaces */
+.btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 44px;
+  background: var(--verde);
+  color: #fff;
+  border: none; border-radius: 8px;
+  font-size: 16px; font-weight: 700; line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter .15s, transform .1s;
+}
+.btn:hover { filter: brightness(.92); }
+.btn:active { transform: scale(.98); }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+
+.link { font-size: 13px; font-weight: 700; color: var(--verde); text-decoration: none; }
+.link:hover, .link-btn:hover:not(:disabled) { text-decoration: underline; }
+.link-btn { background: none; border: none; font: inherit; font-weight: 700; color: var(--verde); cursor: pointer; }
+.link-btn:disabled { color: #999; cursor: not-allowed; }
+.reenviar { font-size: 13px; color: #444; }
+
+/* Éxito */
+.check {
+  width: 70px; height: 70px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--verde); color: #fff;
+  font-size: 34px; border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+  .topbar h1 { font-size: 12px; }
+  .card { padding: 64px 18px 24px; }
+  .codigo { gap: 6px; }
+  .codigo input { width: 40px; }
+}

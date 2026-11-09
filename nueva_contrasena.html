@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SENA - SIGIE | Nueva Contraseña</title>
+  <link rel="stylesheet" href="StylesRecuperar.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar__left">
+        <img class="topbar__icon" src="logosigie.png" alt="Logo SIGIE">
+        <h1>SENA - SIGIE | Sistema de Gestión de Ingreso y Elementos | Nueva Contraseña</h1>
+      </div>
+      <img class="topbar__sena" src="logosena.png" alt="SENA">
+    </header>
+    <main class="main">
+      <section class="card">
+        <div class="card__badge"><img src="logosigie.png" alt="Logo SIGIE"></div>
+        <ol class="steps">
+          <li class="step done"><b>1</b><span>Correo</span></li>
+          <li class="step done"><b>2</b><span>Código</span></li>
+          <li class="step active"><b>3</b><span>Contraseña</span></li>
+        </ol>
+
+        <form id="formPass" class="panel" novalidate>
+          <h2>Nueva contraseña</h2>
+          <p class="hint">Crea una contraseña segura para tu cuenta.</p>
+
+          <div class="field">
+            <label for="pass1">Nueva contraseña</label>
+            <div class="pass">
+              <input id="pass1" type="password" autocomplete="new-password" required>
+              <button type="button" class="ojo" data-target="pass1" aria-label="Mostrar contraseña">👁</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="pass2">Confirmar contraseña</label>
+            <div class="pass">
+              <input id="pass2" type="password" autocomplete="new-password" required>
+              <button type="button" class="ojo" data-target="pass2" aria-label="Mostrar contraseña">👁</button>
+            </div>
+          </div>
+
+          <ul class="reglas">
+            <li data-regla="largo">Mínimo 8 caracteres</li>
+            <li data-regla="mayus">Una letra mayúscula</li>
+            <li data-regla="numero">Un número</li>
+            <li data-regla="igual">Las contraseñas coinciden</li>
+          </ul>
+
+          <p class="msg" id="msg" role="alert" hidden></p>
+          <button type="submit" class="btn">Cambiar contraseña</button>
+        </form>
+
+        <div class="panel exito" id="exito" hidden>
+          <div class="check">✔</div>
+          <h2>¡Contraseña actualizada!</h2>
+          <p class="hint">Ya puedes iniciar sesión con tu nueva contraseña.</p>
+          <a href="inicio_sesion.html" class="btn">Ir a iniciar sesión</a>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="ScriptsNuevaPass.js"></script>
+</body>
+</html>

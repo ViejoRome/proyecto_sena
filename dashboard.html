@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SENA - SIGIE | Registros</title>
+  <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <div class="topbar__left">
+        <img class="topbar__icon" src="logosigie.png" alt="logosigie">
+        <h1>SENA - SIGIE <span>| Registros</span></h1>
+      </div>
+      <div class="topbar__right">
+        <span class="user">👤 Admin - ******</span>
+        <img class="topbar__sena" src="logosena.png" alt="SENA">
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- Menú lateral -->
+      <aside class="sidebar">
+        <nav>
+          <a href="#" class="menu-item" data-section="panel">🏠 <span>Panel de Control</span></a>
+          <a href="#" class="menu-item active" data-section="registros">➕ <span>Registros</span></a>
+          <a href="#" class="menu-item" data-section="control">✏️ <span>Control de Ingreso/Salida</span></a>
+          <a href="#" class="menu-item" data-section="bd">🗄️ <span>Base de Datos del Personal</span></a>
+          <a href="#" class="menu-item" data-section="usuarios">👥 <span>Usuarios</span></a>
+          <a href="#" class="menu-item mt" data-section="config">⚙️ <span>Configuración</span></a>
+          <a href="#" class="menu-item" id="salir">⛔ <span>Salir</span></a>
+        </nav>
+      </aside>
+
+      <!-- Contenido -->
+      <main class="content">
+        <div class="tabs" id="tabs">
+          <button class="tab active" data-tab="aprendices">🧑‍🎓 Aprendices</button>
+          <button class="tab" data-tab="instructores">👨‍🏫 Instructores</button>
+          <button class="tab" data-tab="funcionarios">👥 Funcionarios</button>
+          <button class="tab" data-tab="biblioteca">📚 Biblioteca</button>
+        </div>
+
+        <form id="registroForm" class="panel" novalidate>
+          <!-- Información personal -->
+          <section class="col col--left">
+            <h2>Informacion personal</h2>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="nombre">Nombre Completos</label>
+                <input id="nombre" type="text" placeholder="Nombre y apellidos" required>
+              </div>
+              <div class="field">
+                <label for="tipoDoc">Tipo de Documento</label>
+                <select id="tipoDoc">
+                  <option>T.I.</option>
+                  <option>C.C.</option>
+                  <option>C.E.</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="numDoc">N. de Documento</label>
+                <input id="numDoc" type="text" inputmode="numeric" required>
+              </div>
+              <div class="field">
+                <label for="fechaNac">Fecha de Nacimiento</label>
+                <input id="fechaNac" type="date">
+              </div>
+            </div>
+
+            <div class="grid-2 bottom">
+              <div class="field">
+                <label for="obs">Observacion</label>
+                <textarea id="obs"></textarea>
+              </div>
+              <div>
+                <div class="field">
+                  <label for="telefono">Teléfono</label>
+                  <input id="telefono" type="tel">
+                </div>
+                <div class="foto">
+                  <span>Foto</span>
+                  <button type="button" id="btnFoto" class="foto__box">📷 Cámara</button>
+                  <input type="file" id="fileFoto" accept="image/*" hidden>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <!-- Especialización -->
+          <section class="col col--right">
+            <h2>Especialización y Vinculación</h2>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="area">Área de Especialidad</label>
+                <input id="area" type="text" placeholder="ej: Mantenimiento Industrial">
+              </div>
+              <div class="field">
+                <label for="vinculacion">Tipo de Vinculación</label>
+                <select id="vinculacion">
+                  <option>Contratista</option>
+                  <option>Planta</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="jornada">Jornada</label>
+                <input id="jornada" type="text">
+              </div>
+              <div class="field">
+                <label for="correo">Correo Institucional</label>
+                <input id="correo" type="email" placeholder="usuario@sena.edu.co">
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn btn--green">Guardar Registro</button>
+              <button type="button" id="btnLimpiar" class="btn btn--blue">Limpiar Registro</button>
+            </div>
+          </section>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

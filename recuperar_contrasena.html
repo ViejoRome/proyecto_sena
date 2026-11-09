@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SENA - SIGIE | Recuperar Cuenta</title>
+  <link rel="stylesheet" href="StylesRecuperar.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar__left">
+        <img class="topbar__icon" src="logosigie.png" alt="Logo SIGIE">
+        <h1>SENA - SIGIE | Sistema de Gestión de Ingreso y Elementos | Recuperar Cuenta</h1>
+      </div>
+      <img class="topbar__sena" src="logosena.png" alt="SENA">
+    </header>
+
+    <main class="main">
+      <section class="card">
+        <div class="card__badge"><img src="logosigie.png" alt="Logo SIGIE"></div>
+
+        <ol class="steps">
+          <li class="step active"><b>1</b><span>Correo</span></li>
+          <li class="step"><b>2</b><span>Código</span></li>
+          <li class="step"><b>3</b><span>Contraseña</span></li>
+        </ol>
+
+        <form id="formCorreo" class="panel" novalidate>
+          <h2>Recuperar cuenta</h2>
+          <p class="hint">Ingresa tu correo institucional y te enviaremos un código de verificación.</p>
+          <div class="field">
+            <label for="correo">Correo Institucional</label>
+            <input id="correo" type="email" placeholder="usuario@sena.edu.co" autocomplete="email" required>
+          </div>
+          <p class="msg" id="msg" role="alert" hidden></p>
+          <button type="submit" class="btn">Enviar código</button>
+          <a href="inicio_sesion.html" class="link">← Volver al inicio de sesión</a>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="recuperar_contrasena.js"></script>
+</body>
+</html>

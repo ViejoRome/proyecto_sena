@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SENA - SIGIE | Verificar Código</title>
+  <link rel="stylesheet" href="StylesRecuperar.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar__left">
+        <img class="topbar__icon" src="logosigie.png" alt="Logo SIGIE">
+        <h1>SENA - SIGIE | Sistema de Gestión de Ingreso y Elementos | Verificar Código</h1>
+      </div>
+      <img class="topbar__sena" src="logosena.png" alt="SENA">
+    </header>
+    <main class="main">
+      <section class="card">
+        <div class="card__badge"><img src="logosigie.png" alt="Logo SIGIE"></div>
+        <ol class="steps">
+          <li class="step done"><b>1</b><span>Correo</span></li>
+          <li class="step active"><b>2</b><span>Código</span></li>
+          <li class="step"><b>3</b><span>Contraseña</span></li>
+        </ol>
+
+        <form id="formCodigo" class="panel" novalidate>
+          <h2>Verifica tu correo</h2>
+          <p class="hint">Enviamos un código de 6 dígitos a <strong id="correoMostrado">tu correo</strong></p>
+          <div class="codigo" id="codigo">
+            <input type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 1">
+            <input type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 2">
+            <input type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 3">
+            <input type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 4">
+            <input type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 5">
+            <input type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 6">
+          </div>
+          <p class="msg" id="msg" role="alert" hidden></p>
+          <button type="submit" class="btn">Verificar código</button>
+          <div class="reenviar">
+            ¿No te llegó? <button type="button" id="btnReenviar" class="link-btn" disabled>Reenviar código</button>
+            <span id="contador"></span>
+          </div>
+          <a href="recuperar_contrasena.html" class="link">← Cambiar correo</a>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="ScriptsCodigo.js"></script>
+</body>
+</html>
